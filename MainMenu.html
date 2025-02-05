@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mega Market</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="assets/css/MainMenu.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <nav>
+    <!-- เริ่มต้น แทบด้านบน -->
+    <div class="nav-container">
+      <!-- เริ่มต้น โลโก้ -->้
+      <div class="nav-logo">
+        <p class="logo">Mega Market</p>
+      </div>
+      <!-- สิ้นสุด โลโก้ -->
+
+      <!-- เริ่มต้น แทบค้นหา -->
+      <div class="nav-search">
+        <div class="icon">
+          <i class="fa fas fa-magnifying-glass"></i>
+        </div>
+        <div class="nav-input">
+          <input onkeyup="searchsomthing(this)" id="txt_search" class="input-search" type="search" name="search"
+            placeholder="Search..." />
+        </div>
+      </div>
+      <!-- สิ้นสุด แทบค้นหา -->
+
+      <!-- เริ่มต้น ทำเมนูและโปรไฟล์ -->
+      <div class="menu-profile">
+        <div onclick="opencart()" class="cart">
+          <i class="fa fas fa-cart-shopping"></i>
+          <div id="cartcount" class="cartcount" style="display: none;">
+            0
+          </div>
+          <p class="name-cart">ตะกร้า</p>
+        </div>
+
+        <div onclick="openrecord()" class="record_profile">
+          <i class="fa fas fa-repeat"></i>
+          <p class="name-record">ประวัติการสั่งซื้อ</p>
+        </div>
+
+        <div class="profile">
+          <i class="fa fas fa-user"></i>
+          <p class="name-profile">โปรไฟล์</p>
+        </div>
+      </div>
+      <!-- เริ่มต้น ทำเมนูและโปรไฟล์ -->
+    </div>
+    <!-- สิ้นสุด แทบด้านบน -->
+
+    <!-- เริ่มต้น แถบสินค้าและค้นหา -->
+    <div class="container">
+      <!-- เริ่มต้น แถบค้นหา -->
+      <div class="sidebar">
+        <a onclick="searchproduct('All')" class="sidebar-items"> All </a>
+        <a onclick="searchproduct('toy')" class="sidebar-items"> toy </a>
+        <a onclick="searchproduct('shoe')" class="sidebar-items"> shoe </a>
+        <a onclick="searchproduct('electronic')" class="sidebar-items"> electronic </a>
+      </div>
+      <!-- สิ้นสุด แถบค้นหา -->
+
+      <!-- เริ่มต้น แถบสินค้า -->
+      <div id="productlist" class="product">
+
+      </div>
+      <!-- เริ่มต้น แถบสินค้าและค้นหา -->
+  </nav>
+
+  <!-- เริ่มต้น รายละเอียดสินค้า -->
+  <div id="modal_desc" class="modal" style="display: none;">
+    <div onclick="closeModal()" class="modal-bg"></div>
+    <div class="modal-page">
+      <h5>รายละเอียดสินค้า</h5>
+      <br>
+      <div class="modaldesc-content">
+        <img id="mdd-img" class="modaldesc-img" src="img/moon.jpg" alt="">
+        <div class="modaldesc-detail">
+          <p id="mdd-name" style="font-size: 1.5vw;">Product name</p>
+          <p id="mdd-price" style="font-size: 1.2vw;">$ 500</p>
+          <br>
+          <p id="mdd-desc" class="modaldesc-title"> nulla esse, sequi earum doloribus perferendis mollitia. Quo autem
+            nam blanditiis unde est inventore velit porro, enim sed molestias, ut ab eum eos et libero, perspiciatis
+            molestiae sint aperiam.</p>
+          <br>
+          <div class="btn-cintrol">
+            <button onclick="closeModal()" class="btn">
+              ปิด
+            </button>
+            <button onclick="addtocart()" class="btn btn-buy">
+              เพิ่มในตะกร้า
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- สิ้นสุด รายละเอียดสินค้า -->
+
+  <!-- เริ่มต้น ตะกร้าสินค้า -->
+  <div id="modalcart" class="modal" style="display: none;">
+    <div onclick="closeModal()" class="modal-bg"></div>
+    <div class="modal-page">
+      <h5>ตะกร้า</h5>
+      <br>
+      <div id="mycart" class="cartlist">
+      </div>
+      <div class="btn-control">
+        <button onclick="closeModal()" class="btn">
+          ปิด
+        </button>
+        <button onclick="closeModal()" class="btn btn-buy">
+          ซื้อ
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- สิ้นสุด ตะกร้าสินค้า -->
+
+  <!-- เริ่มต้น ประวัติสินค้า -->
+  <div id="record" class="record" style="display: none;">
+    <div onclick="closereocrd()" class="record-bg"></div>
+    <div class="record-page">
+      <h5>ประวัติการสั่งซื้อ</h5>
+      <br>
+      <div id="myrecord" class="recordlist">
+      </div>
+      <div class="btn-control">
+        <button onclick="closereocrd()" class="btn">
+          ปิด
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- สิ้นสุด ประวัติสินค้า -->
+</body>
+
+</html>`
