@@ -83,7 +83,7 @@ nav{
     transition: 0.3s;
     transform: scale(1.1);
 }
-.login{
+.login_login{
     /* background: yellow; */
     margin: auto;
     display: flex;
@@ -95,7 +95,7 @@ nav{
     transition: 0.3s;
     transform: scale(1.1);
 }
-.interested{
+.interested_interested{
     /* background: palevioletred; */
     margin: auto;
     display: flex;
@@ -106,7 +106,7 @@ nav{
     transition: 0.3s;
     transform: scale(1.1);
 }
-.profile{
+.profile_profile{
     /* background: purple; */
     margin: auto;
     display: flex;

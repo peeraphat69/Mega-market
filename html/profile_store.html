@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/assets/css/Profile_store.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav>
+        <!-- เริ่มต้น แทบด้านบน -->
+        <div class="nav-container">
+          <!-- เริ่มต้น โลโก้ -->้
+          <div class="nav-logo">
+            <p class="logo">Mega Market</p>
+          </div>
+          <!-- สิ้นสุด โลโก้ -->
+    
+          <!-- เริ่มต้น แทบค้นหา -->
+          <div class="nav-search">
+            <div class="icon">
+              <i class="fa fas fa-magnifying-glass"></i>
+            </div>
+            <div class="nav-input">
+              <input onkeyup="searchsomthing(this)" id="txt_search" class="input-search" type="search" name="search"
+                placeholder="Search..." />
+            </div>
+          </div>
+          <!-- สิ้นสุด แทบค้นหา -->
+    
+          <!-- เริ่มต้น ทำเมนูและโปรไฟล์ -->
+          <div class="menu-profile">
+            <div onclick="opencart()" class="cart">
+              <i class="fa fas fa-cart-shopping"></i>
+              <div id="cartcount" class="cartcount" style="display: none;">
+                0
+              </div>
+              <p class="name-cart" style="margin-left: 2px;">ตะกร้า</p>
+            </div>
+    
+            <div onclick="openrecord()" class="record_profile">
+              <i class="fa fas fa-repeat"></i>
+              <p class="name-record" style="margin-left: 3px;">ประวัติการสั่งซื้อ</p>
+            </div>
+    
+            <div class="login" style="margin: auto;">
+              <a href="" class="login_login">
+                <i class="fa fas fa-right-to-bracket" style=" color: #fff;"></i>
+                <p style="margin-left: 3px; color: #fff;"> เข้าสู่ระบบ </p>
+              </a>
+            </div>
+    
+            <div class="interested" style="margin: auto;">
+              <a href="" class="interested_interested">
+                <i class="fa fas fa-user-plus" style="color: #fff;"></i>
+                <p style="margin-left: 3px; color: #fff;">สนใจใช้งาน</p>
+              </a>
+            </div>
+    
+            <div class="profile" style="margin: auto;">
+              <a href="http://127.0.0.1:5500/html/profile_store.html" class="profile_profile">
+                <i style="color: #fff;" class="fa fas fa-user"></i>
+                <p style="color: #fff; margin-left: 3px; ">โปรไฟล์</p>
+              </a>
+              
+            </div>
+          </div>
+          <!-- เริ่มต้น ทำเมนูและโปรไฟล์ -->
+        </div>
+        <!-- สิ้นสุด แทบด้านบน -->
+  </nav>
+    
+    <!-- จบ แถบโปรไฟล์ -->
+    <div class="nav_Main_profile">
+            <!-- เริ่ม ปุ่มกลับ -->
+             <div class="button_all ">
+                 <div  class="close_button button_click">
+                    <a href="http://127.0.0.1:5500/MainMenu.html" style="color: #fff;"><p class="">กลับไปหน้าหลัก</p></a>                  
+                 </div>
+                 <div class="exit_button button_click">
+                    <a href="" style="color: #fff;""><p>ออกจากระบบ</p></a>
+
+                 </div>
+             </div>
+            <!-- จบ ปุ่มกลับ -->
+
+            <!-- เริ่ม รูปโปรไฟล์ -->
+            <div class="icon_profile">
+                <i style="font-size: 9vw;" class="fa fas fa-user"></i>  
+            </div>
+              <!-- จบ รูปโปรไฟล์ -->
+        </div>
+        <!-- เริ่ม แถบโปรไฟล์ -->
+
+    <div class="profile_details">
+        <div class="main_ui">
+            <p class="profile_title">ชื่อ-นามสกุล</p>
+            <div class="profilename">
+                <p style="font-size: 1.5vw; margin-left: 5px;">นาย พีรพัทร ขวาธิจักร</p>
+            </div>
+        </div>
+        <div class="main_ui">
+            <p class="profile_title">อีเมล</p>
+            <div class="profilename">
+                <p style="font-size: 1.5vw; margin-left: 5px;">pxxxxx@gmail.com</p>
+            </div>
+        </div>
+        <div class="main_ui">
+            <p class="profile_title">เบอร์โทร</p>
+            <div class="profilename">
+                <p style="font-size: 1.5vw; margin-left: 5px;">098xxxxxxx</p>
+            </div>
+        </div>
+        <div class="main_ui">
+            <p class="profile_title">ที่อยู่</p>
+            <div class="profilename">
+                <p style="font-size: 1.5vw; margin-left: 5px;">บ้านเลขที่5 ต.นามีไผ่ อ.อำผวา จ.นาน้อย</p>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
